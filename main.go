@@ -816,6 +816,8 @@ func getMaterials(c *gin.Context) {
 
 	rows, err := db.Query(query, params...)
 	if err != nil {
+		log.Println("💥 ERROR DATABASE ASLI:", err)
+
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal query materials"})
 		return
 	}
